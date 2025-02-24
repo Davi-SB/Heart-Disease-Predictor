@@ -10,6 +10,7 @@
 ## 2. Arquivo Modelo
 ### sklearn.naive_bayes exite...
 - [ ] Escolher entre biblioteca e implementação manual
+- [ ] Ajuste de parâmetros
 > Obs: essa sklearn tem umas funções mto boas até pra avaliar testes, pra executar deve ter tbm acho q a gnt estar aberto a usar ela ia ser bem potente. Ex: ` from sklearn.naive_bayes import GaussianNB;
 from sklearn.metrics import accuracy_score`
 
