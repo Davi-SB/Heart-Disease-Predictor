@@ -1,11 +1,11 @@
 ## 1. Arquivo dados
 ### Limpeza, observações, estruturação e padronificação
 ### Como resultado, vamos ter um novo dataset (arquivo), arrumado e concentrado
-- [ ] Remover campos que não vai ser do nosso interesse de usar para treinar, como uma coisa que não influencia tanto ou não sabemos muito como afeta ou o que é;
-- [ ] Tirar colunas que tiverem menos de X% com dado;
-- [ ] Identificar colunas com registros fora do padrão e adequar elas para o nosso padrão (numérico). Ex: Sexo == 1 e Sexo == M;
+- [X] Remover campos que não vai ser do nosso interesse de usar para treinar, como uma coisa que não influencia tanto ou não sabemos muito como afeta ou o que é;
+- [X] Tirar colunas que tiverem menos de X% com dado;
+- [X] Identificar colunas com registros fora do padrão e adequar elas para o nosso padrão (numérico). Ex: Sexo == 1 e Sexo == M;
 - [ ] Plotar métricas interessantes que podem afetar mais diretamente. Os plots devem ser não só gráfico mas também a head dos nossos dataframes (primeiras linhas) para mostrar como a estrutura do nosso dataset está ficando. Ex: Colesterol e pressão alto podem indicar bem diretamente saúde ruim do coração, então vão ser dados que vamos frequentemente olhar na fase dos testes;
-- [ ] A resposta do nosso modelo deve ser bool, adequar a nota do coração isso
+- [X] A resposta do nosso modelo deve ser bool, adequar a nota do coração isso
 
 ## 2. Arquivo Modelo
 ### sklearn.naive_bayes exite...
