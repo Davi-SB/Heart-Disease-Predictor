@@ -8,7 +8,7 @@
 - [X] A resposta do nosso modelo deve ser bool, adequar a nota do coração isso
 
 ## 2. Arquivo Modelo
-### sklearn.naive_bayes exite...
+### sklearn.naive_bayes existe...
 - [ ] Escolher entre biblioteca e implementação manual
 - [ ] Ajuste de parâmetros
 > Obs: essa sklearn tem umas funções mto boas até pra avaliar testes, pra executar deve ter tbm acho q a gnt estar aberto a usar ela ia ser bem potente. Ex: ` from sklearn.naive_bayes import GaussianNB;
