@@ -1,71 +1,78 @@
-# Heart-Disease-Predictor
 
-Este projeto utiliza um classificador Ingênuo de Bayes, uma técnica de aprendizado de máquina, para prever o diagnóstico de doença cardíaca com base em um conjunto de variáveis relacionadas à saúde do coração. A ideia é aplicar um modelo simples e eficaz para estimar a probabilidade de uma pessoa apresentar uma condição cardíaca com base em seus dados clínicos.
+# Predição de Doenças Cardíacas com Classificador Ingênuo de Bayes
 
-## Variáveis no Dataset
+Este projeto tem como objetivo aplicar e analisar um classificador ingênuo de Bayes para a predição de doenças cardíacas, utilizando um conjunto de dados do UCI Machine Learning Repository. Através de um processo completo que inclui a limpeza, exploração e modelagem dos dados, o estudo busca demonstrar a aplicabilidade de métodos probabilísticos na área da saúde, contribuindo para a identificação de fatores de risco e para a melhoria dos processos de diagnóstico e prevenção de enfermidades cardiovasculares.
 
-Abaixo, listamos as variáveis do conjunto de dados, juntamente com nomes mais diretos e suas explicações detalhadas:
+## Sumário
+- [Motivação e Objetivos](#motivação-e-objetivos)
+- [Descrição do Dataset](#descrição-do-dataset)
+- [Pré-processamento e Limpeza dos Dados](#pré-processamento-e-limpeza-dos-dados)
+- [Análise Exploratória dos Dados](#análise-exploratória-dos-dados)
+- [Implementação do Classificador Ingênuo de Bayes](#implementação-do-classificador-ingênuo-de-bayes)
+- [Integrantes](#Integrantes)
+- [Referências](#referências)
 
-1. **Idade** (`age`): A idade do paciente em anos.
-2. **Sexo** (`sex`): O sexo biológico do paciente (1 para masculino, 0 para feminino).
-3. **TipoDorToracica** (`chestPain`): Tipo de dor no peito experimentada pelo paciente. Os valores categóricos representam:
-   - 0: Angina típica
-   - 1: Angina atípica
-   - 2: Dor não anginosa
-   - 3: Assintomático
-4. **PressaoSanguineaRepouso** (`restingBloodPressure`): Pressão arterial em repouso (mm Hg).
-5. **ColesterolSerico** (`serumCholestoral`): Nível de colesterol sérico em mg/dL.
-6. **GlicoseJejumElevada** (`fastingBloodSugar>120`): Indicador binário de glicose em jejum acima de 120 mg/dL (1 para verdadeiro, 0 para falso).
-7. **EletrocardiogramaRepouso** (`restingEletroc`): Resultados do eletrocardiograma em repouso:
-   - 0: Normal
-   - 1: Anormalidade na onda ST-T (inversão de onda T ou elevação/depresso na ST)
-   - 2: Hipertrofia ventricular esquerda provável ou definitiva
-8. **FrequenciaCardiacaMaxima** (`maximumHeartRate`): Frequência cardíaca máxima alcançada durante o teste.
-9. **AnginaPorExercicio** (`exerciseInducedAngina`): Indicador binário de dor no peito induzida por exercício (1 para sim, 0 para não).
-10. **DepressaoST** (`oldpeak`): Depressão do segmento ST em relação ao repouso, medida em mm.
-11. **InclinaçãoST** (`op_slope`): Inclinação do segmento ST durante o exercício:
-    - 0: Para cima
-    - 1: Plano
-    - 2: Para baixo
-12. **NumeroVasosPrincipais** (`numberMajorVessels`): Número de vasos principais (0-3) coloridos pela fluoroscopia.
-13. **FluxoSanguineoTalio** (`bloodFlow_thal`): Resultados do teste de estresse com tálio:
-    - 3: Normal
-    - 6: Defeito fixo
-    - 7: Defeito reversível
-14. **Diagnostico** (`diagnosis(FURate)`): Variável alvo que indica a presença de doença cardíaca (0 para ausência, 1 para presença).
+## Motivação e Objetivos
 
-## Objetivo do Projeto
+Este estudo busca:
+- Aplicar um modelo preditivo utilizando o classificador ingênuo de Bayes para identificar a presença de doenças cardíacas.
+- Explorar as propriedades estatísticas do modelo, mesmo considerando a suposição de independência condicional entre os atributos.
+- Avaliar o desempenho do modelo por meio de métricas como acurácia, precisão e sensibilidade, utilizando diferentes estratégias de validação (Hold-Out, Bootstrap, Cross Validation e Stratified K-Fold).
+- Investigar a relevância dos diferentes parâmetros clínicos e suas correlações com o diagnóstico, contribuindo para a discussão sobre a aplicação de aprendizado de máquina na área da saúde.
 
-O objetivo é treinar um classificador Ingênuo de Bayes que possa prever a variável alvo, **Diagnóstico**, com base nos dados fornecidos. A abordagem de Bayes foi escolhida devido à sua simplicidade, interpretabilidade e eficácia em cenários com variáveis categóricas e numéricas.
+## Descrição do Dataset
 
-## Estrutura do Projeto
+O dataset utilizado foi obtido a partir do [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/45/heart+disease). Embora a base original contenha diversos parâmetros, neste estudo foram selecionadas as seguintes variáveis:
+- **age** (idade)
+- **sex** (sexo)
+- **chestPain** (tipo de dor no peito)
+- **restingBloodPressure** (pressão arterial em repouso)
+- **serumCholestoral** (colesterol sérico)
+- **restingEletroc** (resultados do eletrocardiograma em repouso)
+- **maximumHeartRate** (frequência cardíaca máxima)
+- **exerciseInducedAngina** (angina induzida pelo exercício)
+- **diagnosis** (diagnóstico - variável alvo)
 
-1. **Preparação dos Dados**:
+Cada variável foi escolhida por sua relevância clínica e potencial impacto na predição de doenças cardíacas.
 
-   - Limpeza e normalização dos dados.
-   - Conversão de variáveis categóricas para formatos compatíveis.
+## Pré-processamento e Limpeza dos Dados
 
-2. **Treinamento do Modelo**:
+A etapa de pré-processamento é realizada no arquivo `dataCleaning.ipynb`, onde:
+- São identificados e tratados dados faltantes.
+- São removidos registros inconsistentes e outliers.
+- As variáveis são padronizadas para garantir consistência e facilitar a análise exploratória e modelagem preditiva.
 
-   - Divisão dos dados em conjuntos de treinamento e teste.
-   - Treinamento do classificador Ingênuo de Bayes.
+## Análise Exploratória dos Dados
 
-3. **Avaliação do Modelo**:
+No notebook `dataAnalysis.ipynb`, foram realizadas diversas análises para compreender a distribuição dos dados e identificar padrões relevantes, como:
+- **Distribuição do Diagnóstico vs. Variáveis Contínuas:** Gráficos de dispersão para idade, pressão arterial, colesterol e frequência cardíaca máxima.
+- **Distribuição do Diagnóstico vs. Variáveis Categóricas:** Gráficos de contagem para sexo, dor no peito, eletrocardiograma em repouso e angina induzida pelo exercício.
+- **Heatmap de Correlação:** Visualização da correlação entre os parâmetros e o diagnóstico, destacando os indicadores mais relevantes.
 
-   - Cálculo de métricas como acurácia, precisão, recall e F1-score.
+## Implementação do Classificador Ingênuo de Bayes
 
-4. **Validação e Ajuste**:
+O classificador ingênuo de Bayes, cuja fundamentação teórica e fórmulas estão detalhadas no relatório, foi implementado nos notebooks:
+- `NaiveBayes_Bootstrap.ipynb`
+- `NaiveBayes_CrossValidation.ipynb`
+- `NaiveBayes_StratifiedKFold.ipynb`
 
-   - Ajustes nos parâmetros do modelo para melhorar o desempenho.
+Cada arquivo demonstra uma abordagem de avaliação diferente, permitindo a análise do desempenho do modelo sob diversas metodologias:
+- **Hold-Out:** Divisão simples dos dados em treinamento e teste.
+- **Bootstrap:** Reamostragem para construir intervalos de confiança.
+- **Cross Validation:** Divisão dos dados em k-folds para avaliação robusta.
+- **Stratified K-Fold:** Validação cruzada com preservação da proporção das classes.
 
-## Como Executar
+## Integrantes
+- Davi Sorrentino Brilhante (dsb6)
+- Davi Lyra Dubeux (dld2)
+- Eduardo Mabesoone Melo (emm4)
 
-1. Clone este repositório.
-2. Instale as dependências necessárias usando `pip install -r requirements.txt`.
-3. Execute o script principal com `python main.py`.
-4. Verifique os resultados no terminal ou em arquivos de saída.
+## Referências
 
-## Contribuições
+- Dua, D. and Graff, C. (2019). *UCI Machine Learning Repository: Heart Disease Data Set*. Disponível em: [UCI Repository](https://archive.ics.uci.edu/dataset/45/heart+disease).
+- Murphy, K. P. (2012). *Machine Learning: A Probabilistic Perspective*. MIT Press.
+- Russell, S. and Norvig, P. (2010). *Artificial Intelligence: A Modern Approach* (3ª ed.). Prentice Hall.
+- Hastie, T., Tibshirani, R. and Friedman, J. (2009). *The Elements of Statistical Learning: Data Mining, Inference, and Prediction* (2ª ed.). Springer.
 
-Sinta-se à vontade para contribuir com melhorias, correções ou novos recursos. Submeta um Pull Request com suas sugestões!
 
+*Projeto desenvolvido como parte da disciplina de Estatística e Probabilidade para Computação do curso de Engenharia da Computação no Centro de informática da Universidade Federal de Pernambuco.*
