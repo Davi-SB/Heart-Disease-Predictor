@@ -1,6 +1,6 @@
 # Estrutura [Apresentação](https://www.canva.com/design/DAGihAzVUhw/KvlCXL8vDYi9DlAqmgI32Q/edit?utm_content=DAGihAzVUhw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-## Pessoa 1: Davi Brilhante
+## Davi Brilhante
 1. **Introdução e Motivação**
    - Apresentação do projeto, objetivos e importância do estudo.
    - ``Sessões 1 e 2 do relatório``
@@ -15,7 +15,7 @@
    - Métodos aplicados para tratar dados faltantes e padronização de variáveis.
    - ``dataCleaning.ipynb``
 
-## Pessoa 2: _________
+## Eduardo Mabesoone
 4. **Análise Exploratória dos Dados**
    - Demonstração dos principais gráficos e insights extraídos (distribuição das variáveis, relações entre parâmetros e diagnóstico).
    - Interpretação dos plots e descobertas relevantes.
@@ -26,7 +26,7 @@
    - Conceitos teóricos e fórmulas básicas.
    - ``Sessão 5 do relatório, mas sem aprofundar tanto``
 
-## Pessoa 3: _________
+## Davi Dubeux
 6. **Uso do Classificador e Estratégias de Avaliação**
    - Explicação dos códigos para implementação do modelo.
    - Demonstração dos 4 métodos de avaliação: Hold-Out, Bootstrap, Cross Validation e Stratified K-Fold.
